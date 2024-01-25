@@ -1,0 +1,75 @@
+içe aktarma  'paket:flutter/material.dart' ;
+
+void  main () =>  runApp ( Uygulamam ());
+
+class  MyApp,  StatelessWidget'ı genişletiyor  {
+  @geçersiz kıl
+  Widget  yapısı ( BuildContext bağlamı) {
+     MaterialApp'ı döndür (
+      başlık :  'Flutter Demosu' ,
+      debugShowCheckedModeBanner :  false ,
+      tema :  ThemeData (
+        renk Şeması :  Renk Şeması . fromSeed (seedColor :  Renkler .deepPurple),
+        useMaterial3 :  doğru ,
+      ),
+      ana sayfa :  const  MyHomePage (başlık :  'Flutter Demo Ana Sayfası' ),
+    );
+  }
+}
+
+class  MyHomePage  StatefulWidget'ı genişletiyor  {
+  son  Dize başlığı;
+
+  const  Ana Sayfam ({
+    süper .anahtar,
+     bu .title gerekliydi ,
+  }) :  Süper ();
+
+  @geçersiz kıl
+  Durum < MyHomePage > createState () =>  _MyHomePageState ();
+}
+
+class  _MyHomePageState,  State < MyHomePage > {' i genişletir 
+  int_sayaç =  0 ; _
+
+  void  _incrementCounter () {
+    setState (() {
+      _sayaç ++ ;
+    });
+  }
+
+  @geçersiz kıl
+  Widget  yapısı ( BuildContext bağlamı) {
+    dönüş  iskelesi (
+      uygulama Çubuğu :  Uygulama Çubuğu (
+        arka planRenk :  Tema . (context).colorScheme.inversePrimary'nin ,
+        başlık :  Metin (widget.title),
+        önde gelen :  IconButton (basıldığında : () {
+          print ( "Menü Açılamadı." );
+          
+          ScaffoldMessenger . ( bağlam). showSnackBar ( SnackBar (
+            content :  Text ( "Menü açılamadı." )));
+        }, simge :  Simge ( Simgeler .menü, renk :  Renkler .kahverengi)),
+      ),
+      gövde :  Merkez (
+        çocuk :  Sütun (
+          mainAxisAlignment :  MainAxisAlignment .center,
+          çocuklar : [
+            const  Metin (
+              'Düğmeye bu kadar çok kez bastınız:' ,
+            ),
+            Metin (
+              ' $ _counter ' ,
+              stil :  Tema . (context).textTheme.headlineMedium'un ,
+            ),
+          ],
+        ),
+      ),
+      floatActionButton :  FloatingActionButton (
+        onPressed : _incrementCounter,
+        ipucu :  'Artış' ,
+        çocuk :  const  Simge ( Simgeler .add),
+      ),
+    );
+  }
+}
